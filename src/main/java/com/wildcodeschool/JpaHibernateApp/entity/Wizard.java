@@ -30,6 +30,10 @@ public class Wizard {
     @Column(name = "muggle")
     private boolean muggle;
 
+    @ManyToOne (fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "school_id")
+    School school;
+
 
     public Wizard() {
     }
@@ -88,5 +92,13 @@ public class Wizard {
 
     public void setMuggle(boolean muggle) {
         this.muggle = muggle;
+    }
+
+    public School getSchool() {
+        return school;
+    }
+
+    public void setSchool(School school) {
+        this.school = school;
     }
 }
