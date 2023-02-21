@@ -1,5 +1,4 @@
 package com.wildcodeschool.JpaHibernateApp.controller;
-
 import com.wildcodeschool.JpaHibernateApp.entity.Wizard;
 import com.wildcodeschool.JpaHibernateApp.repository.WizardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,5 +53,4 @@ public class WizardController {
         wizardRepository.deleteById(id);
         return "redirect:/wizards";
     }
-
 }

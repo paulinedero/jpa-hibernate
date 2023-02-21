@@ -2,6 +2,7 @@ package com.wildcodeschool.JpaHibernateApp.entity;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Optional;
 
 @Entity
 public class School {
@@ -64,5 +65,9 @@ public class School {
 
     public void setWizards(List<Wizard> wizards) {
         this.wizards = wizards;
+    }
+
+    public void addWizard(Wizard wizard) {
+        this.wizards.add(wizard);
     }
 }
