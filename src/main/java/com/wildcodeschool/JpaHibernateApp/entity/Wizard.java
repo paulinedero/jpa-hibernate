@@ -36,6 +36,14 @@ public class Wizard {
 
 
     public Wizard() {
+        id = 0L;
+        setFirstName("");
+        setLastName("");
+        setBirthday(null);
+        setBirthPlace("");
+        setBiography("");
+        setMuggle(false);
+        setSchool(null);
     }
 
     public Long getId() {

@@ -5,26 +5,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Category {
+public class Effect {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="title")
-    private String title;
+    private String description;
 
-    @OneToMany(mappedBy = "category")
-    private List<Potion> potions;
+    @ManyToMany(mappedBy = "effects")
+    private List<Potion> potions = new ArrayList<>();
 
-
-    public Category() {
+    public Effect() {
         id=0L;
-        setTitle("");
+        setDescription(description);
         potions = new ArrayList<Potion>();
     }
 
-    public Category(String title) {
-        this.title = title;
+    public Effect(String description) {
+        this.description = description;
     }
 
     public Long getId() {
@@ -35,12 +33,12 @@ public class Category {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getDescription() {
+        return description;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public List<Potion> getPotions() {

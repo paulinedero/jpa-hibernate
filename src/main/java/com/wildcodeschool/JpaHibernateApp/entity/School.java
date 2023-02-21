@@ -1,6 +1,7 @@
 package com.wildcodeschool.JpaHibernateApp.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,6 +26,11 @@ public class School {
 
 
     public School() {
+        id = 0L;
+        setName("");
+        setCapacity(0);
+        setCountry("");
+        wizards = new ArrayList<Wizard>();
     }
 
     public Long getId() {
