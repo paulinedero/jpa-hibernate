@@ -3,7 +3,9 @@ package com.wildcodeschool.JpaHibernateApp.entity;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Wizard {
@@ -34,6 +36,14 @@ public class Wizard {
     @JoinColumn(name = "school_id")
     School school;
 
+    @ManyToMany
+    @JoinTable(
+            name = "wizard_course",
+            joinColumns = @JoinColumn(name = "wizard_id"),
+            inverseJoinColumns = @JoinColumn(name = "course_id")
+    )
+    private List<Course> courses = new ArrayList<>();
+
 
     public Wizard() {
         id = 0L;
@@ -44,6 +54,7 @@ public class Wizard {
         setBiography("");
         setMuggle(false);
         setSchool(null);
+        setCourses(null);
     }
 
     public Long getId() {
@@ -108,5 +119,13 @@ public class Wizard {
 
     public void setSchool(School school) {
         this.school = school;
+    }
+
+    public List<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
     }
 }
